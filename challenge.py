@@ -19,7 +19,7 @@ def draw():
     player.draw()
     coin.draw()
   else:
-    screen.draw.text("Game Over! Press R to restart", color="white", topleft=("20,30"))
+    screen.draw.text("Game Over! Press R to restart", color="white", topleft=(20,30))
 def place_coin():
   global coin
   global WIDTH
