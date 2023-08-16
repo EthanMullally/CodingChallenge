@@ -8,18 +8,19 @@ lives = 10
 
 fox = Actor("player")
 fox.pos= 400,200
-fox_speed = 20
+
 coin = Actor("coin")
 coin.pos = 500,100 
-
 def draw():
   global game_over
+  global score
   if not game_over:
     screen.fill("green")
+    screen.draw.text("Score:" + str(score), topleft=(20,20))
     player.draw()
     coin.draw()
   else:
-    screen.draw.text("Game Over! Press R to restart", color="white", topleft=(20,30))
+    screen.draw.text("Game Over! Press R to restart", color="white", topleft=(20,20))
 def place_coin():
   global coin
   global WIDTH
@@ -39,10 +40,11 @@ def update():
   if lives == 0:
     game_over = True
   if not game_over:
+    fox_speed = 20
     if keyboard.a:
-      player.y = player.y+player_speed
+      player.y = player.y+fox_speed
     if keyboard.d:
-      player.x = player.x-player_speed
+      player.x = player.x-fox_speed
   else:
     if keyboard.r:
       game_over = False
